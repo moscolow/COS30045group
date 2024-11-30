@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aligned Horizontal Mortality Bar Graph</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .bar {
+            stroke-width: 2;
+        }
+        .bar.value {
+            fill: steelblue;
+        }
+        .bar.apm_value {
+            fill: url(#diagonalHatch);
+        }
+        .axis text {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Aligned Horizontal Mortality Bar Graph</h2>
+    <div id="chart"></div>
+    <script>
+        const margin = { top: 20, right: 50, bottom: 50, left: 100 },
+              width = 800 - margin.left - margin.right,
+              height = 500 - margin.top - margin.bottom;
+
+        const svg = d3.select("#chart")
+                      .append("svg")
+                      .attr("width", width + margin.left + margin.right)
+                      .attr("height", height + margin.top + margin.bottom)
+                      .append("g")
+                      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Define hatched pattern for "APM_Value" bars
+        svg.append("defs")
+           .append("pattern")
+           .attr("id", "diagonalHatch")
+           .attr("patternUnits", "userSpaceOnUse")
+           .attr("width", 10)
+           .attr("height", 10)
+           .append("path")
+           .attr("d", "M0,0 l10,10 M-2,2 l4,-4 M6,6 l4,-4")
+           .attr("stroke", "gray")
+           .attr("stroke-width", 1);
+
+        // Load data from CSV file
+        d3.csv("southeast_asia_aggregated_by_year_APM.csv").then(data => {
+            // Parse numerical values
+            data.forEach(d => {
+                d.Year = +d.Year; // Ensure Year is a number
+                d.Value = +d.Value; // Replace with correct column name
+                d.APM_Value = +d.APM_Value; // Replace with correct column name
+            });
+
+            const years = data.map(d => d.Year);
+
+            // Create a scale for the y-axis (Years)
+            const y = d3.scaleBand()
+                        .domain(years)
+                        .range([0, height])
+                        .padding(0.2);
+
+            // Create a scale for the x-axis (Mortality Values)
+            const x = d3.scaleLinear()
+                        .domain([-d3.max(data, d => d.APM_Value / 2), d3.max(data, d => d.Value / 2)])
+                        .range([0, width]);
+
+            // X-axis
+            svg.append("g")
+               .attr("transform", `translate(0,${height})`)
+               .call(d3.axisBottom(x).tickSizeOuter(0));
+
+            // Y-axis
+            svg.append("g")
+               .call(d3.axisLeft(y).tickSizeOuter(0));
+
+            // Add bars
+            svg.selectAll("g.bar-group")
+               .data(data)
+               .join("g")
+               .attr("class", "bar-group")
+               .attr("transform", d => `translate(0,${y(d.Year)})`)
+               .each(function(d) {
+                   const group = d3.select(this);
+
+                   // APM_Value bar (centered)
+                   group.append("rect")
+                        .attr("class", "bar apm_value")
+                        .attr("x", x(-d.APM_Value / 2))
+                        .attr("y", 0)
+                        .attr("width", x(d.APM_Value / 2) - x(0))
+                        .attr("height", y.bandwidth());
+
+                   // Value bar (right-aligned)
+                   group.append("rect")
+                        .attr("class", "bar value")
+                        .attr("x", x(0))
+                        .attr("y", 0)
+                        .attr("width", x(d.Value / 2) - x(0))
+                        .attr("height", y.bandwidth());
+               });
+
+            // Add labels
+            svg.append("text")
+               .attr("x", width / 2)
+               .attr("y", height + margin.bottom - 10)
+               .attr("text-anchor", "middle")
+               .text("Mortality Value");
+
+            svg.append("text")
+               .attr("x", -height / 2)
+               .attr("y", -margin.left + 15)
+               .attr("text-anchor", "middle")
+               .attr("transform", "rotate(-90)")
+               .text("Year");
+        });
+    </script>
+</body>
+</html>

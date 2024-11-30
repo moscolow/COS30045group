@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 2</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="age.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <p>Visualizing Mortality Rates from Ambient Particulate Matter in Southeast Asia</p>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="index.html">About Us</a>
+            <a href="index.html">Documentation</a>
+        </div>
+    </nav>
+    <section id="demography-section">
+        <div id="demography-box">
+            <div class="header-badge">
+                Group 2
+            </div>
+            <h1 class="title">The Mortality Rates from Ambient Particulate Matter in Southeast Asia</h1>
+            <p class="description">
+                Ambient particulate matter (PM) pollution signific-antly affects different age groups, with children and older adults being the most vulnerable. Children’s developing lungs are prone to damage from PM exposure, leading to conditions like asthma and stunted lung growth. Older adults, particularly those with pre-existing conditions like COPD and heart disease, face a higher risk of hospitalization and premature mortality due to PM. Data visualizations can effectively highlight these age-related disparities in mortality, underscoring the urgent need for public health interventions to protect vulnerable populations from the harmful effects of air pollution.
+            </p>
+            <div class="stats">
+                <span class="views">blah</span>
+                <span class="updated">Data Ranged: 1990-2019</span>
+            </div>
+        </div>
+        <div class="badge">
+            <span>🌿</span> Data brought to you by
+            <strong> OECD Statistics</strong>
+        </div>
+        
+    </section>
+
+    <section id="map-section">
+        
+        <div>
+            <div id="aside">
+                <h3>Mortality Rates for Different Age Groups in Southeast Asia (1990-2019)</h3>
+                <p>Rather than focusing solely on premature deaths, Disability-Adjusted Life Years (DALYs) is used as a more comprehensive measure. DALYs account for both the years lost due to premature death and the years lived with illness or disability caused by pollution-related diseases. This approach emphasizes that air pollution doesn’t just cause immediate health impacts; it also indirectly affects our quality of life through chronic illnesses, reduced productivity, and increased financial burdens.</p>
+                <div id="buttons-container">
+                    <button id="all" class="active">All</button>
+                    <button id="more-than-64-years-old">> 64</button>
+                    <button id="15-to-64-years-old">15 - 64</button>
+                    <button id="less-than-15-years-old"> &lt; 15</button>
+                </div>
+                <div id="rank-table-container">
+                    <table id="rank-table"></table>
+                </div>
+                
+                <div class="tooltip"></div>
+            </div>
+            <div id="blue-bg">
+                <div id="timeline-container">
+                    <input id="timeline-slider" class="slider" type="range" min="1990" max="2019" step="1" value="2019">
+                    <p>Year: <span id="current-year">2019</span></p>
+                </div>
+                <div id="map-container">
+                    <div id="map"></div>
+                    <div id="legend-container">
+                        <div id="legend-title">Value Legend</div>
+                        <svg id="legend"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="age-chart-container">
+        <h2 class="title-2">Total Mortality for Age Groups (1990-2019)</h2>
+        <div id="age-chart"></div>
+        <script src="age_ALL.js"></script>
+    </div>
+
+    <section class="navigate-section">
+        <a href="index.html" class="nav-arrow left-arrow">&lt;</a>
+        <a href="policy.html" class="nav-arrow right-arrow">&gt;</a>
+    </section>
+
+    <footer>
+        <p>Presented to you by</p>
+        <div>
+            <h5>Mandy Si Yi LEE 102787473</h5>
+            <h5>Fiona TEO 102789110</h5>
+        </div>
+    </footer>
+</body>
+</html>

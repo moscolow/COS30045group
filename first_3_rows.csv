@@ -1,0 +1,4 @@
+COU,Country,VAR,Variable,RISK,Risk,SEX,Sex,AGE,Age,YEA,Year,Unit Code,Unit,PowerCode Code,PowerCode,Reference Period Code,Reference Period,Value,Flag Codes,Flags
+AUS,Australia,DALY_CAP,"DALYs, per thousand inhabitants",PM_2_5_OUT,Ambient Particulate Matter,BOTH,Both,ALL,All,1990,1990,1000HAB,Per 1 000 inhabitants,0,Units,,,3.244,,
+AUS,Australia,DALY_CAP,"DALYs, per thousand inhabitants",PM_2_5_OUT,Ambient Particulate Matter,BOTH,Both,ALL,All,1991,1991,1000HAB,Per 1 000 inhabitants,0,Units,,,3.107,,
+AUS,Australia,DALY_CAP,"DALYs, per thousand inhabitants",PM_2_5_OUT,Ambient Particulate Matter,BOTH,Both,ALL,All,1992,1992,1000HAB,Per 1 000 inhabitants,0,Units,,,3.042,,

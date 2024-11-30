@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortality Rates Area Chart</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .chart {
+            font-family: Arial, sans-serif;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            shape-rendering: crispEdges;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mortality Rates in Brunei Darussalam (2016-2019)</h2>
+    <svg id="chart" width="800" height="500"></svg>
+
+    <script>
+        // Dimensions and margins
+        const svg = d3.select("#chart"),
+            margin = { top: 50, right: 50, bottom: 50, left: 50 },
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom;
+
+        const chart = svg.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Scales
+        const x = d3.scaleLinear().range([0, width]);
+        const y = d3.scaleLinear().range([height, 0]);
+        const color = d3.scaleOrdinal()
+            .range(["blue", "red", "green"]);
+
+        // Load data from CSV
+        d3.csv("separate_woage.csv").then(data => {
+            // Parse data
+            data.forEach(d => {
+                d.year = +d.year;
+                d.value = +d.value;
+            });
+
+            // Define domains
+            x.domain(d3.extent(data, d => d.year));
+            y.domain([0, d3.max(data, d => d.value)]);
+            color.domain([...new Set(data.map(d => d.group))]);
+
+            // Axes
+            chart.append("g")
+                .attr("transform", `translate(0,${height})`)
+                .call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")));
+
+            chart.append("g")
+                .call(d3.axisLeft(y));
+
+            // Group data by age group
+            const groups = d3.group(data, d => d.group);
+
+            // Area generator
+            const area = d3.area()
+                .x(d => x(d.year))
+                .y0(height)
+                .y1(d => y(d.value));
+
+            // Add areas
+            for (const [key, values] of groups.entries()) {
+                chart.append("path")
+                    .datum(values)
+                    .attr("fill", color(key))
+                    .attr("opacity", 0.5)
+                    .attr("d", area);
+
+                // Add line on top of the area
+                chart.append("path")
+                    .datum(values)
+                    .attr("fill", "none")
+                    .attr("stroke", color(key))
+                    .attr("stroke-width", 2)
+                    .attr("d", d3.line()
+                        .x(d => x(d.year))
+                        .y(d => y(d.value))
+                    );
+            }
+
+            // Add legend
+            const legend = chart.selectAll(".legend")
+                .data(groups.keys())
+                .enter().append("g")
+                .attr("transform", (d, i) => `translate(10,${i * 20})`);
+
+            legend.append("rect")
+                .attr("x", width - 18)
+                .attr("width", 18)
+                .attr("height", 18)
+                .attr("fill", color);
+
+            legend.append("text")
+                .attr("x", width - 24)
+                .attr("y", 9)
+                .attr("dy", "0.35em")
+                .style("text-anchor", "end")
+                .text(d => d);
+        }).catch(error => {
+            console.error("Error loading the CSV file:", error);
+        });
+    </script>
+</body>
+</html>
