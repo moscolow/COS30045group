@@ -1,0 +1,527 @@
+/* ------------------general styling caz why not------------------ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* --------------------------nav-------------------------- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+nav p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #888;
+}
+
+nav div {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: #999;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #222;
+}
+
+/* index first section */
+.main-section {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* You can adjust the height */
+    /* background: url('img/index_section1.jpg') no-repeat center center; */
+    /* background-size: cover; */
+}
+
+/* Overlay gradient */
+.main-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, #e8fce8, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Title centered in the overlay */
+.main-title {
+    color: #111;
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+}
+.main-section p {
+    color: #333;
+    font-size: 20px; /* Adjust size as needed */
+    margin-top: 15px;
+    font-weight: lighter;
+    max-width: 80%; /* Restrict width to prevent overflow */
+    line-height: 1.5;
+}
+
+/* Section 2 */
+#demography-section-aim {
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Center align the content */
+}
+
+#demography-box-aim {
+    max-width: 800px;
+    margin: 0 5rem; /* Maintain equal margins on the left and right */
+}
+
+.title-2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 15px;
+    text-align: center;  /* Center the title text */
+}
+
+.description-2 {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* -----------------------------intro----------------------------- */
+/* Demography Section Styling */
+#demography-section {
+    background: linear-gradient(to bottom, #e8fce8, #ffffff);
+    padding: 20px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+}
+
+#demography-box{
+    max-width: 800px;
+    margin: 0 5rem;
+}
+
+.header-badge {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a7e44;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.stats {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    height: 1.5rem;
+    margin-top: 2rem;
+}
+
+.badge span {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.badge strong {
+    font-weight: bold;
+    color: #1a7e44;
+}
+
+/* ------------------graph section------------------ */
+#map-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 30px auto;
+}
+
+#map-section > div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 90%;
+}
+
+/* Aside Styling */
+#map-section #aside {
+    background-color: #ffffff;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+#map-section #aside h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#map-section #aside p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Timeline Styling */
+#timeline-container {
+    text-align: center;
+    margin: 5px auto;
+}
+
+#timeline-slider {
+    width: 60%;
+    margin: 10px auto;
+}
+
+#current-year {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Section Styling */
+#buttons-container {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%; /* Use full width of the container */
+}
+
+#buttons-container button {
+    flex: 1 1 0; /* Ensure buttons share space equally */
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #edd5db;
+    color: #111;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center; /* Center the text inside buttons */
+}
+
+#buttons-container button:hover {
+    background-color: #c6cebe;
+}
+
+#buttons-container button.active {
+    background-color: #c3b0c4;
+    font-weight: bold;
+}
+
+
+/* the ranking table */
+#rank-table-container {
+    height: 390px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    margin-top: 20px; /* Optional: Add margin to the top */
+}
+
+/* Styling for the table itself */
+#rank-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#rank-table th,
+#rank-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#rank-table th {
+    background-color: #A7D8FF;
+    color: #fff;
+}
+
+#rank-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+#blue-bg{
+    background-color: #adc2d8;
+}
+/* the choropleth part */
+#map-container {
+    flex: 1;
+    display: flex;
+    border-radius: 10px;
+    padding-left: 20px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+#map {
+    width: 100%;
+    height: 50%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* legend for the choropleth */
+#legend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;  /* Add position relative to enable z-index */
+    z-index: 99999;  /* Move legend container to the front */
+}
+
+#legend-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 50px;
+}
+
+#legend {
+    margin-right: 50px;
+    width: 100%;
+}
+
+#legend p{
+    margin: 0;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* age bar */
+#age-chart-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+#age-chart {
+    margin-top: 20px;
+}
+
+.age-chart-bar {
+display: flex;
+align-items: center;
+margin: 10px 0;
+}
+
+.age-chart-bar-text {
+width: 150px;
+text-align: left;
+margin-right: 10px;
+font-size: 14px;
+}
+
+.age-chart-bar-wrapper {
+position: relative;
+flex-grow: 1;
+height: 20px;
+background-color: #e0e0e0; /* Light gray background for comparison */
+border-radius: 5px;
+overflow: hidden;
+}
+
+.age-chart-bar-fill {
+position: absolute;
+height: 100%;
+background-color: #333;
+border-radius: 5px;
+transition: width 0.3s ease;
+}
+
+.age-chart-bar-percentage {
+margin-left: 10px;
+font-size: 14px;
+color: #555;
+}
+
+/* ---------------------policies--------------------- */
+.graph1_tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    pointer-events: none;
+    font-size: 12px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.graph1_hover-line {
+    stroke: gray;
+    stroke-width: 1px;
+    stroke-dasharray: 3, 3;
+    opacity: 0;
+}
+
+/* Point styling */
+#map-section #aside .point {
+    margin-bottom: 20px;
+}
+
+#map-section #aside .point h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#map-section #aside .point p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px;
+}
+
+#first{
+    background-color: #c3b0c4;
+}
+
+#second{
+    background-color: #edd5db;
+}
+
+#third{
+    background-color: #adc2d8;
+}
+.point {
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.point h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.point p {
+    font-size: 16px;
+    color: #555;
+}
+/* direct */
+.navigate-section {
+    margin: 20px 5rem;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: flex-start; /* Start alignment by default */
+    }
+
+/* Right Arrow - Stick to the right */
+.right-arrow {
+    font-size: 50px;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-left: auto; /* Push right arrow to the right */
+}
+
+/* Left Arrow - Optional - only show if there's a left page */
+.left-arrow {
+    font-size: 50px;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for arrows */
+.nav-arrow:hover {
+    color: #555;
+}
+
+/* footer */
+/* General styling for the footer */
+footer {
+    display: flex; /* Arrange title and names in a row */
+    justify-content: space-between; /* Space out text and align elements */
+    align-items: center; /* Align items vertically */
+    padding: 10px 20px; /* Add padding around the footer */
+    background-color: #f9f9f9; /* Light background for subtle contrast */
+    border-top: 1px solid #ddd; /* Optional: A top border for separation */
+}
+
+/* Styling for the footer text */
+footer p {
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Clean font style */
+    font-size: 16px; /* Standard readable size */
+    color: #555; /* Subtle black color */
+    font-weight: bold; /* Slight emphasis */
+}
+
+/* Styling for the footer names container */
+footer div {
+    display: flex; /* Arrange names in a row */
+    gap: 2rem; /* Fixed space between names */
+}
+
+/* Styling for individual names */
+footer h5 {
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Clean font style */
+    font-size: 14px; /* Slightly smaller font */
+    color: #555; /* Subtle black color */
+    font-weight: normal; /* Regular font weight */
+    text-align: right; /* Align names to the right */
+}
