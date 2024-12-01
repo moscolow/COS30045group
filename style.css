@@ -110,6 +110,10 @@ nav a:hover {
     text-align: center;
 }
 
+.views{
+    text-decoration: none;
+}
+
 
 /* -----------------------------intro----------------------------- */
 /* Demography Section Styling */
@@ -670,9 +674,5 @@ footer h5 {
 /* Hover effect for the links */
 .download a:hover {
     color: #45a049;
-    text-decoration: none;
-}
-
-.no-line a{
     text-decoration: none;
 }
