@@ -525,3 +525,150 @@ footer h5 {
     font-weight: normal; /* Regular font weight */
     text-align: right; /* Align names to the right */
 }
+
+
+/*
+===============================================================================================
+                                    about.html
+===============================================================================================
+*/
+.profile-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensures proper display on smaller screens */
+    gap: 20px; /* Space between the profile boxes */
+    min-height: 100vh; /* Adjusted to ensure full viewport height coverage */
+}
+
+.profile-box {
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    width: 380px; /* Reduced width for better responsiveness */
+    max-width: 90%; /* Ensures the box does not exceed the container width */
+}
+
+.profile img {
+    width: 100%; /* Image width matches container width */
+    max-width: 350px; /* Restricts maximum width for consistency */
+    height: 450px; /* Maintains aspect ratio */
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Added more spacing below the image */
+}
+
+.profile-main-btn, .profile-about-btn {
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 10px 20px;
+    background-color: #4c44b6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.profile-main-btn:hover, .profile-about-btn:hover {
+    background-color: #625edc;
+}
+
+.profile-button-container {
+    text-align: center;
+    margin-top: 20px; /* Added spacing above the buttons */
+}
+
+
+/*
+===============================================================================================
+                                    documentation.html
+===============================================================================================
+*/
+.documentation-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.documentation-container h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.documentation-section {
+    margin-bottom: 20px;
+}
+
+.documentation-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.documentation-section p,
+.documentation-section ul,
+.documentation-section ol {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.documentation-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.documentation-section ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.documentation-section li {
+    margin-bottom: 10px;
+}
+.download {
+    /* background-color: #f9f9f9; */
+    padding: 20px;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    /* max-width: 400px; */
+    /* margin: 20px auto; */
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the list */
+.download ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for list items */
+.download li {
+    margin-bottom: 5rem;
+}
+
+/* Style for the links */
+.download a {
+    text-decoration: underline;
+    color: #4CAF50;
+    font-size: 16px;
+}
+
+/* Hover effect for the links */
+.download a:hover {
+    color: #45a049;
+    text-decoration: none;
+}
+
